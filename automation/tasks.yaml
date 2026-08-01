@@ -1,0 +1,40 @@
+version: 1
+timezone: local
+
+# 任务清单（可定时循环执行）
+# - type=command: 执行命令并记录日志
+# - type=http: 访问本地服务健康检查
+# - type=python: 执行一个 python 模块/脚本
+#
+# 建议：把“必须自动化的”放这里；需要 AI 决策/生成的，输出到 artifacts/ 让你集中让 Kimi 一次性处理。
+
+tasks:
+  - id: ensure-server-up
+    name: "确保服务可用（本地健康检查）"
+    schedule:
+      every_minutes: 3
+    type: http
+    request:
+      method: GET
+      url: "http://127.0.0.1:5000/"
+      timeout_seconds: 3
+      expect_status_any_of: [200, 302, 404]
+
+  - id: smoke-test
+    name: "冒烟检查：启动自检脚本"
+    schedule:
+      every_minutes: 15
+    type: python
+    run:
+      module: "automation.smoke_test"
+
+  - id: log-rotate
+    name: "日志整理与清理（保留7天）"
+    schedule:
+      every_minutes: 60
+    type: python
+    run:
+      module: "automation.log_rotate"
+      args:
+        keep_days: 7
+
