@@ -6,14 +6,32 @@ from urllib.parse import unquote, urlparse
 import xml.etree.ElementTree as ET
 
 # 1. 配置你的 PikPak WebDAV 信息
-# 通过环境变量提供，勿把真实账号密码写进代码或提交到仓库
+# 优先读环境变量；也支持在脚本同目录放 .env（KEY=VALUE 每行一条，.env 已在 .gitignore 中，勿提交）
+def _load_dotenv(path):
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, _, v = line.partition("=")
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k and k not in os.environ:
+                    os.environ[k] = v
+    except OSError:
+        pass
+
+
+_load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+
 WEBDAV_URL = os.environ.get("PIKPAK_WEBDAV_URL", "https://dav.mypikpak.com")  # WebDAV 服务器地址
 USERNAME = os.environ.get("PIKPAK_USERNAME", "")  # WebDAV 用户名
 PASSWORD = os.environ.get("PIKPAK_PASSWORD", "")  # WebDAV 密码
 LOCAL_SAVE_DIR = os.environ.get("PIKPAK_LOCAL_SAVE_DIR", "D:/Download")  # 本地保存目录
 
 if not USERNAME or not PASSWORD:
-    raise SystemExit("请先设置环境变量 PIKPAK_USERNAME / PIKPAK_PASSWORD（PikPak 设置页可查看 WebDAV 账号信息）")
+    raise SystemExit("请先设置 PIKPAK_USERNAME / PIKPAK_PASSWORD（环境变量，或 testool/.env，参考 testool/.env.example）")
 REQUEST_TIMEOUT = (30, 600)  # (连接超时, 读取超时)
 MAX_RETRIES = 5  # 下载失败后最大重试次数
 RETRY_BACKOFF_SECONDS = 3  # 重试等待基数（会按 attempt 递增）

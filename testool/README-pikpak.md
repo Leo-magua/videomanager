@@ -14,7 +14,7 @@
 | 服务地址 | `https://dav.mypikpak.com`（可用环境变量 `PIKPAK_WEBDAV_URL` 覆盖） |
 | 脚本 | `testool/pikpak copy.PY`（相对仓库根目录） |
 | 默认本地下载目录 | `D:/Download`（由环境变量 `PIKPAK_LOCAL_SAVE_DIR` 控制） |
-| 账号配置位置 | 环境变量 `PIKPAK_USERNAME` / `PIKPAK_PASSWORD`（PikPak 设置页可查看） |
+| 账号配置位置 | 环境变量 `PIKPAK_USERNAME` / `PIKPAK_PASSWORD`，或 `testool/.env`（参考 `testool/.env.example`，PikPak 设置页可查看） |
 | 本地素材参考目录 | `<项目目录>\Download` |
 
 **不要**臆造路径。先用 `list_files` / `check` 确认真实路径，再下载。
@@ -171,7 +171,7 @@ mod.download_file(remote_path, local_name)
 
 ## 8. 安全注意
 
-- WebDAV 账号密码通过环境变量 `PIKPAK_USERNAME` / `PIKPAK_PASSWORD` 提供，**不要**写进脚本明文或提交到仓库。
+- WebDAV 账号密码通过环境变量 `PIKPAK_USERNAME` / `PIKPAK_PASSWORD` 提供，或写在 `testool/.env`（已在 .gitignore 中，**不要**提交，也不要写进脚本明文）。
 - 下载大文件前先确认磁盘空间与 `LOCAL_SAVE_DIR`。
 
 ---
