@@ -1,0 +1,6 @@
+Flask>=3.0
+flask-cors>=4.0
+Pillow>=10.0
+# 视频流式/剪辑还依赖系统 ffmpeg（brew install ffmpeg），非 pip 包
+
+requests>=2.31

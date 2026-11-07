@@ -1,0 +1,29 @@
+node_modules/
+dist/
+.env
+.env.local
+*.pyc
+__pycache__/
+uploads/
+download/
+output/
+.idea/
+*.log
+.video_editor.config.json
+
+# 运行缓存 / 临时文件
+.mark_cache/
+.moviepy_temp/
+
+# 素材与产物（大文件，不入库）
+Download/
+backend/uploads/
+backend/download/
+backend/output/
+
+# 自动化运行产物
+automation/logs/
+automation/artifacts/
+
+# 抓取结果
+*_magnets.txt

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
+<title id="title">视频管理器：手机操作，Mac 调度，Windows 存储</title>
+<desc id="desc">手机面板把资料编辑和文件指令交给 Mac 调度中心。Mac 用 SQLite 保存索引与元数据，并向 Windows 连接器签发文件操作凭证。播放优先由手机直连存储机器，剪辑由可选处理器执行。单机部署时调度中心内置连接器与处理器。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#52616b" stroke-width="1.2"/></marker></defs>
+<rect width="1440" height="1040" fill="#fff"/>
+<g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" fill="#17242b">
+<text x="40" y="47" font-size="30" font-weight="700" fill="#17242b" text-anchor="start">视频管理器</text>
+<text x="236" y="47" font-size="24" font-weight="500" fill="#17242b" text-anchor="start">一张图看懂：手机操作，Mac 调度，Windows 存储</text>
+<text x="40" y="82" font-size="17" font-weight="400" fill="#5c6d77" text-anchor="start">现有实现 · Android / Web 面板 + Flask / SQLite + Windows 连接器 + ffmpeg 处理器</text>
+<path d="M190 175 V123 H1205 V175" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="483" y="105" width="471" height="33" rx="0" fill="#fff" stroke="#fff" stroke-width="1.5"/>
+<text x="718" y="128" font-size="17" font-weight="600" fill="#21657b" text-anchor="middle">视频播放：手机优先直连存储机器</text>
+<rect x="40" y="175" width="300" height="390" rx="12" fill="#fafbfc" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="62" y="211" font-size="22" font-weight="700" fill="#17242b" text-anchor="start">01  手机 / Android APK</text>
+<rect x="62" y="232" width="256" height="224" rx="14" fill="#fff" stroke="#52616b" stroke-width="1.5"/>
+<text x="80" y="264" font-size="18" font-weight="600" fill="#17242b" text-anchor="start">素材库 / 当前目录</text>
+<text x="300" y="264" font-size="14" font-weight="500" fill="#21657b" text-anchor="end">评分 ↓</text>
+<path d="M78 278 H302" stroke="#dce2e6"/>
+<rect x="78" y="288" width="224" height="37" rx="5" fill="#f3f6f7" stroke="#dce2e6" stroke-width="1.5"/>
+<text x="94" y="312" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">文件夹与视频列表</text>
+<rect x="78" y="339" width="224" height="37" rx="5" fill="#f3f6f7" stroke="#dce2e6" stroke-width="1.5"/>
+<text x="94" y="363" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">播放 · 打点 · 标签</text>
+<rect x="78" y="390" width="224" height="37" rx="5" fill="#f3f6f7" stroke="#dce2e6" stroke-width="1.5"/>
+<text x="94" y="414" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">演员 · 评分 · 剪辑</text>
+<text x="64" y="489" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">IndexedDB：缓存已同步的资料</text>
+<text x="64" y="519" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">Outbox：离线修改，重连后回放</text>
+<text x="64" y="544" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">文件操作需要设备在线</text>
+<rect x="485" y="175" width="380" height="390" rx="12" fill="#fafbfc" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="508" y="211" font-size="22" font-weight="700" fill="#17242b" text-anchor="start">02  Mac / 调度中心</text>
+<text x="841" y="211" font-size="17" font-weight="500" fill="#5c6d77" text-anchor="end">:8787</text>
+<rect x="508" y="232" width="334" height="100" rx="8" fill="#fff" stroke="#52616b" stroke-width="1.5"/>
+<text x="527" y="266" font-size="21" font-weight="600" fill="#17242b" text-anchor="start">SQLite：唯一元数据权威</text>
+<text x="527" y="294" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">素材索引 · 演员 · 标签 · 打点</text>
+<text x="527" y="317" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">revision 同步 · 离线回放 · 任务队列</text>
+<rect x="508" y="376" width="334" height="85" rx="8" fill="#fff" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="527" y="407" font-size="19" font-weight="600" fill="#17242b" text-anchor="start">配对鉴权 / 文件操作路由</text>
+<text x="527" y="438" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">签发短期 ticket，派发后台任务</text>
+<text x="508" y="495" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">原文件可在 Mac，也可在其他设备</text>
+<text x="508" y="522" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">连接器与处理器不直接写数据库</text>
+<text x="508" y="546" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">单机模式会内置连接器和处理线程</text>
+<rect x="1010" y="175" width="390" height="390" rx="12" fill="#fafbfc" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="1034" y="211" font-size="22" font-weight="700" fill="#17242b" text-anchor="start">First-One / Windows</text>
+<rect x="1034" y="232" width="342" height="100" rx="8" fill="#fff" stroke="#52616b" stroke-width="1.5"/>
+<text x="1054" y="266" font-size="21" font-weight="600" fill="#17242b" text-anchor="start">连接器：读写真实文件</text>
+<text x="1054" y="295" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">目录扫描 · 文件流服务 :8788</text>
+<text x="1054" y="318" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">按 ticket 执行授权的文件操作</text>
+<rect x="1034" y="376" width="342" height="85" rx="8" fill="#fff" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="1054" y="407" font-size="19" font-weight="600" fill="#17242b" text-anchor="start">已登记目录 / 原片 / 普通文件</text>
+<text x="1054" y="438" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">上传 · 新建 · 移动 · 重命名 · 删除</text>
+<text x="1034" y="495" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">视频字节留在存储设备上</text>
+<text x="1034" y="522" font-size="16" font-weight="400" fill="#17242b" text-anchor="start">心跳与扫描结果回报 Mac</text>
+<text x="1034" y="546" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">也可换成另一台存储设备</text>
+<path d="M340 346 H485" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="412" y="333" font-size="15" font-weight="500" fill="#17242b" text-anchor="middle">资料 / 指令</text>
+<path d="M485 378 H340" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="412" y="402" font-size="15" font-weight="500" fill="#17242b" text-anchor="middle">快照 / 增量</text>
+<path d="M865 346 H1010" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="937" y="333" font-size="15" font-weight="500" fill="#17242b" text-anchor="middle">授权文件操作</text>
+<path d="M1010 378 H865" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="937" y="402" font-size="15" font-weight="500" fill="#17242b" text-anchor="middle">心跳 / 结果</text>
+<rect x="485" y="625" width="915" height="130" rx="12" fill="#fafbfc" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="508" y="662" font-size="22" font-weight="700" fill="#17242b" text-anchor="start">03  可选处理器 / Mac 或 Windows</text>
+<text x="508" y="698" font-size="20" font-weight="400" fill="#17242b" text-anchor="start">领取任务  →  ffmpeg 探测时长 / 生成缩略图 / 剪辑  →  回传执行结果</text>
+<text x="508" y="729" font-size="16" font-weight="400" fill="#5c6d77" text-anchor="start">处理器从连接器读取源文件；剪辑成品与缩略图上传后，由 Mac 更新元数据。</text>
+<path d="M674 565 V625" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
+<text x="689" y="600" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">任务 / 结果</text>
+<path d="M1205 625 V565" fill="none" stroke="#52616b" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
+<text x="1220" y="600" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">源文件</text>
+<text x="40" y="621" font-size="20" font-weight="700" fill="#17242b" text-anchor="start">关键分工</text>
+<text x="40" y="656" font-size="22" font-weight="600" fill="#21657b" text-anchor="start">资料走 Mac</text>
+<text x="40" y="689" font-size="22" font-weight="600" fill="#21657b" text-anchor="start">视频走存储设备</text>
+<text x="40" y="722" font-size="22" font-weight="600" fill="#21657b" text-anchor="start">剪辑走处理器</text>
+<text x="40" y="805" font-size="25" font-weight="700" fill="#17242b" text-anchor="start">用户的一次操作，实际怎样完成？</text>
+<rect x="40" y="835" width="430" height="143" rx="8" fill="#fff" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="60" y="871" font-size="18" font-weight="700" fill="#21657b" text-anchor="start">A</text>
+<text x="91" y="871" font-size="22" font-weight="600" fill="#17242b" text-anchor="start">浏览与标记</text>
+<text x="60" y="910" font-size="17" font-weight="400" fill="#17242b" text-anchor="start">手机编辑评分 / 演员 / 标签</text>
+<text x="60" y="943" font-size="17" font-weight="400" fill="#5c6d77" text-anchor="start">Mac 保存资料，再同步到手机</text>
+<rect x="505" y="835" width="430" height="143" rx="8" fill="#fff" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="525" y="871" font-size="18" font-weight="700" fill="#21657b" text-anchor="start">B</text>
+<text x="556" y="871" font-size="22" font-weight="600" fill="#17242b" text-anchor="start">文件管理</text>
+<text x="525" y="910" font-size="17" font-weight="400" fill="#17242b" text-anchor="start">手机指定当前目录和目标文件</text>
+<text x="525" y="943" font-size="17" font-weight="400" fill="#5c6d77" text-anchor="start">Mac 鉴权，目标设备执行操作</text>
+<rect x="970" y="835" width="430" height="143" rx="8" fill="#fff" stroke="#b8c3c9" stroke-width="1.5"/>
+<text x="990" y="871" font-size="18" font-weight="700" fill="#21657b" text-anchor="start">C</text>
+<text x="1021" y="871" font-size="22" font-weight="600" fill="#17242b" text-anchor="start">播放与剪辑</text>
+<text x="990" y="910" font-size="17" font-weight="400" fill="#17242b" text-anchor="start">播放优先直连，失败时走代理</text>
+<text x="990" y="943" font-size="17" font-weight="400" fill="#5c6d77" text-anchor="start">需要剪辑时交给 ffmpeg 处理</text>
+<text x="40" y="1016" font-size="15" font-weight="400" fill="#5c6d77" text-anchor="start">网络：同一局域网或 Tailscale  ·  文件移动限定在同一登记存储内  ·  当前面板版本：1.1.8</text>
+</g></svg>
